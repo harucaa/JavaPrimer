@@ -18,31 +18,31 @@ package task;
 //
 // main部分、先走ってリスト化して#9(1)の内容になってしまったので、元に戻すか。
 
-public class Practice_08_01 {
+class Teacher81 extends Person72 {
+	String subject;
 
-	public static void main(String[] args) {
-		Student81[] students;
-		students = new Student81[2];
-		Teacher81[] teachers;
-		teachers = new Teacher81[2];
+	public Teacher81() {
+	}
 
-		students[0] = new Student81("Naohiro Tsuji", 3);
-		students[1] = new Student81("Miku Hatsune", 6);
-		for (Student81 student : students) {
-			System.out.println("Name: " + student.name);
-			System.out.println("Grade: " + student.grade);
-			System.out.println("Age: " + student.age);
-			System.out.println();
+	Teacher81(String name, String subject, int age) {
+		setName(name);
+		setSubject(subject);
+		setAge(age);
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public void setAge(int age) {
+		if (age < 20) {
+			System.out.print("20歳以上でないと先生にはなれないよ");
+			System.out.println("-->" + this.name);
 		}
-
-		teachers[0] = new Teacher81("山田太郎", "物理", 45);
-		teachers[1] = new Teacher81("大木晴加", "英語", 19);
-		for (Teacher81 teacher : teachers) {
-			System.out.println("氏名: " + teacher.name);
-			System.out.println("担当科目: " + teacher.subject);
-			System.out.println("年齢: " + teacher.age);
-			System.out.println();
-		}
-
+		this.age = age;
 	}
 }
