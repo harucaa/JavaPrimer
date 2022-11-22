@@ -1,0 +1,107 @@
+練習問題#7  Practice_06.java
+問題（１）
+練習#6のクラスのフィールド全てについて、
+getter/setterを使うよう改良し、
+年齢に0より小さな数字を代入しようとしたら、コンソールにエラーメッセージが出力されるようにせよ。
+
+メインメソッドでコンソールに年齢を出力する際、getterで年齢を取得するようにせよ。
+
+コンストラクタを利用して、インスタンス生成時に姓名・年齢・身長・靴の数が必ず代入されるようにせよ。
+生まれてから1年あたり平均いくつの靴を買った/買い与えられたかを計算するメソッドを実装せよ。
+メソッドに引数を使わないこと
+
+
+public class Person2 {
+    private String name;
+    private int age;
+    private float height;
+    private int numOfShoes;
+    public Person2() {
+    }
+
+    protected void setName(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    protected void setAge(int age) {
+        this.age = age;
+        if (this.age < 0) {
+            System.out.println("Error: Negative value for age.");
+        }
+    }
+    protected void setAge2(int age) {
+        this.age = age;
+        if (this.age < 0) {
+            throw new IllegalArgumentException("Error: Negative value for age.");
+        }
+    }
+    public int getAge() {
+        return age;
+    }
+
+    protected void setHeight(float height) {
+        this.height = height;
+    }
+    public double getHeight() {
+        return height;
+    }
+
+    protected void setNumOfShoes(int numOfShoes) {
+        this.numOfShoes = numOfShoes;
+    }
+    public int getNumOfShoes() {
+        return numOfShoes;
+    }
+
+    public static void main(String args[]) {
+    }
+}
+
+
+各フィールド変数にgetter / setterを定義。
+getterメソッドは、publicにしてプロジェクト外のクラスからのアクセスを許している。
+setterメソッドは、protectedにして許さない。
+
+
+public class TestPerson2 {
+    public static void main(String args[]) {
+        Person2 p1 = new Person2();
+        p1.setName("Haruka Ohki");
+        p1.setAge(19);
+        p1.setHeight(158.2);
+        p1.setNumOfShoes(999);
+
+        System.out.println(p1.getName());
+        System.out.println(p1.getAge());
+        System.out.println(p1.getHeight());
+        System.out.println(p1.getNumOfShoes());
+    }
+}
+
+インスタンス化のときには、フィールド値をセットしない。
+setterでセットし、getterでゲットして表示する。
+
+setAge()は、年令がマイナスの時、メッセージをコンソールに出力。
+setAge2()は、年令がマイナスの時、IllegalArgumentExceptionという例外を投げる。
+システムのエラーメッセージに加えて、独自のメッセージがコンソールに表示される。
+"Error: Negative value for age."
+
+
+Exception in thread "main" java.lang.IllegalArgumentException: Error: Negative value for age.
+        at Person2.setAge2(Person2.java:25)
+        at TestPerson2.main(TestPerson2.java:13)
+
+
+
+
+問題（２）
+(オプション)
+「0より小さい年齢」以外にも適当な正当性チェックを実装せよ。
+
+例：月乃瀬という姓は実在しない、122歳より大きい年齢の人はいない…
+
+(オプション)
+コンソールにエラーメッセージを出力するのでなく、IllegalArgumentException例外をスローするようにせよ。

@@ -1,0 +1,49 @@
+練習問題#6  Practice_06.java
+問題（１）
+人間についての以下の情報を格納することのできるクラスを書いてみよ。
+(クラスやフィールドには適切な名前を付けること。また、適切な型を用いること。)
+
+姓名 String name
+年齢 int age
+身長 float height
+今までに買った/買い与えられた靴の数 int numOfShoes
+
+
+public class Person {
+    public String name;
+    public int age;
+    public float height;
+    public int numOfShoes;
+    public Person(String name, int age, float height, int numOfShoes) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.numOfShoes = numOfShoes;
+    }
+    public static void main(String args[]) {
+    }
+}
+
+
+各フィールド変数をpublicにして、アクセスできるようにしている。他のクラスから見えるように。
+privateだと見えない。試してみよう。
+
+
+問題（２）
+メインメソッドで先のクラスをインスタンス化せよ。また、インスタンスのフィールドにアクセスし、
+自分についての情報を代入せよ。(年齢・身長・靴の数については任意かつ自由に粉飾可とする)
+コンソールに自分の名前を出力せよ。
+
+public class TestPerson {
+    public static void main(String args[]) {
+        Person p1 = new Person("Naohiro Tsuji", 20, (float) 170.0, 99);
+        System.out.println(p1.name);
+//      System.out.println(p1.age);
+//      System.out.println(p1.height);
+//      System.out.println(p1.numOfShoes);
+    }
+}
+
+Personクラスのインスタンスp1を生成する。インスタンス化の際に書くフィールド変数を定義している。
+p1.nameで名前にアクセスして、コンソールへ出力。
+他のフィールドに関しては、"//"でコメントアウトしているので、無いのと同じ。コメントを外して試してみよう。

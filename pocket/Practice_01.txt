@@ -1,0 +1,12 @@
+以下のコードの説明をする？
+
+String myName = "佐藤";   
+String[] studentNames = {"伊藤", "加藤", "佐藤"};
+
+for (int i = 1; i < studentNames.length; i++) { 
+    if (myName == studentNames[i]) {
+        System.out.println("ありえない？");
+    } else if (myName.equals(studentNames[i])) {
+        System.out.println("同じ名前: " + myName); 
+    } 
+}
