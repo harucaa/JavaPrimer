@@ -20,7 +20,6 @@ package task;
 //   自分についての情報を代入せよ。(年齢・身長・靴の数については任意かつ自由に粉飾可とする)
 //   コンソールに自分の名前を出力せよ。
 
-// mainメソッドを持つ実装クラスは、ファイル名と同じにする必要がある。
 public class Practice_06 {
 	public static void main(String args[]) {
 		Person6 p1 = new Person6();

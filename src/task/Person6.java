@@ -14,7 +14,7 @@ package task;
 // 同じファイル内に記述するときは、アクセス修飾無しclass Person {}にする。
 // アクセス修飾無しでも同じプロジェクト内でアクセスでき、名前が衝突する。
 
-class Person6 {
+public class Person6 {
 	// フィールド変数はpublicにしないと、他のクラスから見えない。
 	public String name; // 姓名
 	public int age; // 年齢

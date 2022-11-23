@@ -45,7 +45,7 @@ public class Person2 {
     protected void setHeight(float height) {
         this.height = height;
     }
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 

@@ -15,11 +15,11 @@ package task;
 //     生まれてから1年あたり平均いくつの靴を買った/買い与えられたかを計算するメソッドを実装せよ。
 //     メソッドに引数を使わないこと
 
-class Person71 {
-	public String name; // 姓名
-	public int age; // 年齢
-	public float height; // 身長
-	public int numOfShoes; // 靴の数
+public class Person71 {
+	private String name; // 姓名
+	private int age; // 年齢
+	private float height; // 身長
+	private int numOfShoes; // 靴の数
 
 	public Person71(String name, int age, float height, int numOfShoes) {
 		setName(name);
@@ -47,7 +47,7 @@ class Person71 {
 		}
 	}
 
-	public double getHeight() {
+	public float getHeight() {
 		return height;
 	}
 

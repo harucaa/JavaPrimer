@@ -15,34 +15,23 @@ package task;
 //      オーバーライドを使用して、条件文により20歳以下の年齢をエラーにせよ。
 //
 //  作成したこれらのクラスで実行を確認すること。
-//
-// main部分、先走ってリスト化して#9(1)の内容になってしまったので、元に戻すか。
 
-class Teacher81 extends Person72 {
-	String subject;
+class Student8 extends Person72 {
+	int grade;
 
-	public Teacher81() {
+	public Student8() {
 	}
 
-	Teacher81(String name, String subject, int age) {
+	Student8(String name, int grade) {
 		setName(name);
-		setSubject(subject);
-		setAge(age);
+		setGrade(grade);
 	}
 
-	public String getSubject() {
-		return subject;
+	public int getGrade() {
+		return grade;
 	}
 
-	public void setSubject(String subject) {
-		this.subject = subject;
-	}
-
-	public void setAge(int age) {
-		if (age < 20) {
-			System.out.print("20歳以上でないと先生にはなれないよ");
-			System.out.println("-->" + this.name);
-		}
-		this.age = age;
+	public void setGrade(int grade) {
+		this.grade = grade;
 	}
 }

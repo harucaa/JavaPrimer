@@ -11,13 +11,11 @@ package task;
 //   (オプション)
 //    コンソールにエラーメッセージを出力するのでなく、IllegalArgumentException例外をスローするようにせよ。
 
-// main部分、先走ってリスト化して#9(1)の内容になってしまったので、元に戻すか。
-
-class Person72 {
-	public String name; // 姓名
-	public int age; // 年齢
-	public float height; // 身長
-	public int numOfShoes; // 靴の数
+public class Person72 {
+	private String name; // 姓名
+	private int age; // 年齢
+	private float height; // 身長
+	private int numOfShoes; // 靴の数
 
 	Person72() {
 	}
@@ -65,7 +63,7 @@ class Person72 {
 		}
 	}
 
-	public double getHeight() {
+	public float getHeight() {
 		return height;
 	}
 

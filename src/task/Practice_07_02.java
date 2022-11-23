@@ -11,7 +11,7 @@ package task;
 //   (オプション)
 //    コンソールにエラーメッセージを出力するのでなく、IllegalArgumentException例外をスローするようにせよ。
 
-// main部分、先走ってリスト化して#9(1)の内容になってしまったので、元に戻すか。
+// main部分、リストではなく、配列。
 
 public class Practice_07_02 {
 	public static void main(String args[]) {
@@ -19,10 +19,9 @@ public class Practice_07_02 {
 		persons = new Person72[4];
 
 		persons[0] = new Person72("Naohiro Tsuji", 23, 170.0f, 99);
-		persons[1] = new Person72("Taro Yamada", 153, 154.4f, 999);
-		persons[1] = new Person72("Haruka Ohki", 19, 158.2f, 999);
-		persons[2] = new Person72("大木月乃瀬", 15, 133.1f, 999);
-		persons[3] = new Person72("月乃瀬晴加", 22, 162.8f, 2222);
+		persons[1] = new Person72("Miku Hatsune", 19, 158.2f, 999);
+		persons[2] = new Person72("初音月乃瀬", 15, 133.1f, 999);
+		persons[3] = new Person72("月乃瀬ミク", 22, 162.8f, 2222);
 
 		for (Person72 person : persons) {
 			System.out.println();

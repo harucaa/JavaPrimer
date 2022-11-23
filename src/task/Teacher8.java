@@ -15,25 +15,36 @@ package task;
 //      オーバーライドを使用して、条件文により20歳以下の年齢をエラーにせよ。
 //
 //  作成したこれらのクラスで実行を確認すること。
-//
-// main部分、先走ってリスト化して#9(1)の内容になってしまったので、元に戻すか。
 
-class Student81 extends Person72 {
-	int grade;
+class Teacher8 extends Person72 {
+	String subject;
 
-	public Student81() {
+	public Teacher8() {
 	}
 
-	Student81(String name, int grade) {
+	Teacher8(String name, String subject, int age) {
 		setName(name);
-		setGrade(grade);
+		setSubject(subject);
+		setAge(age);
 	}
 
-	public int getGrade() {
-		return grade;
+	public String getSubject() {
+		return subject;
 	}
 
-	public void setGrade(int grade) {
-		this.grade = grade;
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	// setterをオーバーライドしている。
+	// this.ageはスーパークラスPerson72のprivateメンバーで、アクセス不可。
+	// protectedにするか、public（当然）にすればアクセスできるが、setterを使うべき。
+	public void setAge(int age) {
+		//		this.age = age;
+		super.setAge(age);
+		if (age < 20) {
+			System.out.print("20歳以上でないと先生にはなれないよ");
+			System.out.println("-->" + getName());
+		}
 	}
 }

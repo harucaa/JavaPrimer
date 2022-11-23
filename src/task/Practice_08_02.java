@@ -10,32 +10,25 @@ package task;
 //     クラスを3つ作成せよ。
 //
 //  先生 --- 大学教授（学部, 学科）、高校教師（部活、ホームルーム）
-//  生徒 --- 大学生（学籍番号、学部、学科）、高校生（部活、ホームルーム）
+//  生徒 --- 大学生（学籍番号、学部、学科）
 // 
 // faculty, department, bukatsu, homeroom, studentId
 
-// mainでは、各クラスのメンバー一名ずつを確認する。リスト化、マップ化は、#9で。
-
 //TODO 「1ファイルに1クラス」という指定があるので、ファイルを分割すること。
-//Professor.java, HighSchoolTeacher.java, UnivStudent.java, HighSchoolStudent.java
+//Professor.java, HighSchoolTeacher.java, UnivStudent.java
 
-class Professor extends Teacher81 {
+class Professor extends Teacher8 {
 	public Professor() {
 	}
 }
 
-class HighSchoolTeacher extends Teacher81 {
+class HighSchoolTeacher extends Teacher8 {
 	public HighSchoolTeacher() {
 	}
 }
 
-class UnivStudent extends Student81 {
+class UnivStudent extends Student8 {
 	public UnivStudent() {
-	}
-}
-
-class HighSchoolStudent extends Student81 {
-	public HighSchoolStudent() {
 	}
 }
 
