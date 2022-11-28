@@ -17,7 +17,7 @@ package task;
 //  作成したこれらのクラスで実行を確認すること。
 
 class Student8 extends Person72 {
-	int grade;
+	private int grade;
 
 	public Student8() {
 	}
