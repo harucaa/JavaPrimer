@@ -1,6 +1,7 @@
-import libsvm.*;
 import java.io.*;
 import java.util.*;
+
+import java_libsvm.*;
 
 class svm_train {
 	private svm_parameter param; // set by parse_command_line

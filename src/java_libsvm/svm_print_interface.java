@@ -1,4 +1,4 @@
-package libsvm;
+package java_libsvm;
 public interface svm_print_interface
 {
 	public void print(String s);
