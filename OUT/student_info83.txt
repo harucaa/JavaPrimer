@@ -1,4 +1,4 @@
-20220103 "Akito Shinonome" 19 "イケメン"
-20220105 "Miku Hatsune" 18 "ツインテール"
+20220103 "Akito Shinonome" 19 "ギター、イケメン"
+20220105 "初音 ミク" 18 "ツインテール"
 20220203 "Honami Mochizuki" 21 "-なし-"
-20220804 "Naohiro Tsuji" 20 "おじさん"
+20220804 "Naohiro Tsuji" 20 "キーボード、おじさん"

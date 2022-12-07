@@ -2,10 +2,12 @@ package task;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,9 +52,15 @@ public class Practice_08_03 {
 			String line;
 			while ((line = bf.readLine()) != null) {
 				String student_info[] = line.split(",");
-				Student83 student = new Student83(student_info[0],
-						Integer.parseInt(student_info[1]),
-						student_info[2]);
+				String studentId = student_info[0];
+				int age = Integer.parseInt(student_info[1]);
+				String name = student_info[2];
+				Student83 student = new Student83(studentId, age, name);
+				String comment;
+				if (student_info.length == 4) {
+					comment = student_info[3];
+					student.setComment(comment);
+				}
 				students.add(student);
 			}
 			bf.close();
@@ -90,13 +98,13 @@ public class Practice_08_03 {
 		}
 	}
 
-	// HashMapだったら、studentIdをキーにして検索できる。  students.contains(studentId) 
-	// ここでは、forループを回し、getStudentId()でArrayListから取り出して比較している。 
+	// HashMapだったら、studentIdをキーにして検索できる。  students.contains(studentId)
+	// ここでは、forループを回し、getStudentId()でArrayListから取り出して比較している。
 	public static void AddComment(String fileName, ArrayList<Student83> students) {
 		File file = new File(fileName);
 		BufferedReader bf;
 		try {
-			bf = new BufferedReader(new FileReader(file));
+			bf = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 			String line;
 			// コメントファイルの各行をカンマ区切りで読み込み、
 			while ((line = bf.readLine()) != null) {
@@ -104,13 +112,43 @@ public class Practice_08_03 {
 				// インスタンス化してある各学生について、
 				for (Student83 student : students) {
 					if (student.getStudentId().equals(studentComment[0])) {
-						if (studentComment.length == 2) { // 各エントリーは、学籍番号,コメント の形式
-							// コメントファイルに学籍番号が一致するエントリーがあったらコメントを追加。
-							student.setComment(studentComment[1]);
+						// コメントファイルに学籍番号が一致するエントリーがあったら、コメント更新
+						String curComment;
+						String addComment;
+
+						// コメント + 追加コメント-> "コメント、追加コメント"
+						// コメント + 追加コメント"" or 追加エントリーなし-> "コメント"
+						// null + 追加コメント-> "追加コメント"
+						// null + 追加コメント"" or 追加エントリーなし-> "-なし-"
+						//						
+						// 元のコメントがnullの場合、空文字に
+						if (student.getComment() == null) {
+							curComment = "";
 						} else {
-							// エントリーがあるのにコメントがない場合、"-なし-"というコメントにする。
-							student.setComment("-なし-");
+							curComment = student.getComment();
 						}
+						// 追加コメントエントリーがある場合
+						if (studentComment.length == 2) {
+							// 各エントリーは、学籍番号,コメント の形式
+							addComment = studentComment[1];
+						} else {
+							// エントリーはあるけどコメントがない
+							addComment = "";
+						}
+						String sep = "";
+						if (curComment != "") {
+							if (addComment != "") {
+								sep = "、";
+							} else {
+								sep = "";
+							}
+						} else {
+							if (addComment == "") {
+								// 追加エントリーにコメントが無く、さらに元のコメントもない場合、
+								curComment = "-なし-";
+							}
+						}
+						student.setComment(curComment + sep + addComment);
 					}
 				}
 			}
