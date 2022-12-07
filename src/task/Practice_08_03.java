@@ -2,11 +2,11 @@ package task;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class Practice_08_03 {
 		File file = new File(fileName);
 		BufferedReader bf;
 		try {
-			bf = new BufferedReader(new FileReader(file));
+			bf = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 			String line;
 			while ((line = bf.readLine()) != null) {
 				String student_info[] = line.split(",");
@@ -78,7 +78,7 @@ public class Practice_08_03 {
 		File file = new File(fileName);
 		BufferedWriter bf;
 		try {
-			bf = new BufferedWriter(new FileWriter(file));
+			bf = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
 			String line;
 			for (Student83 student : students) {
 				line = student.getStudentId() + " "
@@ -120,7 +120,7 @@ public class Practice_08_03 {
 						// コメント + 追加コメント"" or 追加エントリーなし-> "コメント"
 						// null + 追加コメント-> "追加コメント"
 						// null + 追加コメント"" or 追加エントリーなし-> "-なし-"
-						//						
+						//
 						// 元のコメントがnullの場合、空文字に
 						if (student.getComment() == null) {
 							curComment = "";
@@ -168,7 +168,6 @@ public class Practice_08_03 {
 			System.out.print("  年齢: " + student.getAge());
 			System.out.println("  氏名: " + student.getName());
 			System.out.println("コメント: " + student.getComment());
-			System.out.println();
 		}
 	}
 
@@ -181,11 +180,11 @@ public class Practice_08_03 {
 		System.out.println(srcFile + " からデータを読込中です。");
 		PrintInfo(students);
 		AddComment(cmtFile, students);
-		System.out.println("コメントを " + cmtFile + " から読み込み、追加します。");
+		System.out.println("\nコメントを " + cmtFile + " から読み込み、追加します。");
 		PrintInfo(students);
-		System.out.println("コメント付きで " + dstFile + " に保存します。");
+		System.out.println("\nコメント付きで " + dstFile + " に保存します。");
 		SaveInfo(dstFile, students);
-		System.out.println("処理が終了しました。");
+		System.out.println("\n処理が終了しました。");
 	}
 
 }
