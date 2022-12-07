@@ -74,7 +74,7 @@ public class Practice_08_03 {
 		return students;
 	}
 
-	public static void SaveInfo(String fileName, ArrayList<Student83> students) {
+	public static void saveInfo(String fileName, ArrayList<Student83> students) {
 		File file = new File(fileName);
 		BufferedWriter bf;
 		try {
@@ -100,7 +100,7 @@ public class Practice_08_03 {
 
 	// HashMapだったら、studentIdをキーにして検索できる。  students.contains(studentId)
 	// ここでは、forループを回し、getStudentId()でArrayListから取り出して比較している。
-	public static void AddComment(String fileName, ArrayList<Student83> students) {
+	public static void addComment(String fileName, ArrayList<Student83> students) {
 		File file = new File(fileName);
 		BufferedReader bf;
 		try {
@@ -162,7 +162,7 @@ public class Practice_08_03 {
 		}
 	}
 
-	public static void PrintInfo(ArrayList<Student83> students) {
+	public static void printInfo(ArrayList<Student83> students) {
 		for (Student83 student : students) {
 			System.out.print("学籍番号: " + student.getStudentId());
 			System.out.print("  年齢: " + student.getAge());
@@ -178,12 +178,12 @@ public class Practice_08_03 {
 
 		ArrayList<Student83> students = openFile(srcFile);
 		System.out.println(srcFile + " からデータを読込中です。");
-		PrintInfo(students);
-		AddComment(cmtFile, students);
+		printInfo(students);
+		addComment(cmtFile, students);
 		System.out.println("\nコメントを " + cmtFile + " から読み込み、追加します。");
-		PrintInfo(students);
+		printInfo(students);
 		System.out.println("\nコメント付きで " + dstFile + " に保存します。");
-		SaveInfo(dstFile, students);
+		saveInfo(dstFile, students);
 		System.out.println("\n処理が終了しました。");
 	}
 
