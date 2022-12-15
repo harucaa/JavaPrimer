@@ -17,12 +17,24 @@ import java.io.IOException;
 public class Practice_05_02 {
 	public static void main(String[] args) {
 		String srcDirName = "IN";
-		String destDirName = "OUT3";
+		String destDirName = "OUT4";
+
+		File destDir = new File(destDirName);
 
 		File srcDir = new File(srcDirName);
-		System.out.println("Files in " + srcDir + "/:");
+		try {
+			if (srcDir.exists()) {
+				System.out.println("Files in " + srcDir + "/:");
+			} else {
+				throw new NullPointerException("no such directory: " + srcDir);
+			}
+		} catch (NullPointerException e) {
+			System.out.println(e);
+			return;
+		}
 
 		String[] srcFiles = srcDir.list();
+
 		// 標準forで書くとこうなる。
 		//		for (int i = 0; i < srcFiles.length; i++) {
 		//			String srcFile = srcFiles[i];
@@ -37,8 +49,6 @@ public class Practice_05_02 {
 		}
 		//
 		System.out.println();
-
-		File destDir = new File(destDirName);
 
 		try {
 			destDir.mkdir();
