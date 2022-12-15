@@ -31,14 +31,14 @@ public class Practice_05_02h {
 			for (String srcFile : srcFiles) {
 				BufferedReader br = new BufferedReader(new FileReader(new File(srcDirName + "/" + srcFile)));
 				BufferedWriter bw = new BufferedWriter(new FileWriter(new File(destDirName + "/" + srcFile)));
-				String Line;
+				String line;
 				System.out.println("====" + srcDirName + "/" + srcFile + "======>>");
-				while((Line = br.readLine()) ! = null) {
+				while ((line = br.readLine()) != null) {
 					System.out.println(line);
 					bw.write(line);
 					bw.newLine();
-					}
 				}
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
