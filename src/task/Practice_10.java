@@ -19,7 +19,7 @@ import java.util.ArrayList;
 //  楽天市場レビューのサンプルデータについて、
 //  レビュー１つ分を表すのに適切なクラスを作成せよ。
 //
-//  Practice_10_01.java
+//  Practice_10.java
 //  メインメソッドでデータ(TSV形式)の全てを読み込み、全データを適切なListあるいはMapに収納せよ。
 //
 //## 問題（２）
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 //
 //ListあるいはMapに収納されたレビュー全てを、上のようなLIBSVM形式で書き出せ。
 
-public class Practice_10_01 {
+public class Practice_10 {
 
 	public static ArrayList<RakutenReview> readReviews(String filename) {
 		File file = new File(filename);
