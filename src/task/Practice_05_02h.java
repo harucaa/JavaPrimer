@@ -3,8 +3,10 @@ package task;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class Practice_05_02h {
 
@@ -13,8 +15,19 @@ public class Practice_05_02h {
 		String srcDirName = "IN";
 		String destDirName = "OUT";
 
+		File destDir = new File(destDirName);
+
 		File srcDir = new File(srcDirName);
-		System.out.println("Files in" + srcDir + "/:");
+		try {
+			if (srcDir.exists()) {
+				System.out.println("Files in" + srcDir + "/:");
+			} else {
+				throw new NullPointerException("no such director:" + srcDir);
+			}
+		} catch (NullPointerException e) {
+			System.out.println(e);
+			return;
+		}
 
 		String[] srcFiles = srcDir.list();
 		int i = 1;
@@ -23,8 +36,6 @@ public class Practice_05_02h {
 
 		}
 		System.out.println();
-
-		File destDir = new File(destDirName);
 
 		try {
 			destDir.mkdir();
@@ -38,9 +49,16 @@ public class Practice_05_02h {
 					bw.write(line);
 					bw.newLine();
 				}
+				System.out.println("<<======" + srcDirName + "/" + srcFile + "====\n");
+				br.close();
+				bw.close();
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+		} catch (FileNotFoundException e) {
+			System.out.println("File or directory not find!");
+			System.out.println(e);
+		} catch (IOException e) {
+			System.out.println("I/O error!");
+			System.out.println(e);
 		}
 
 	}
