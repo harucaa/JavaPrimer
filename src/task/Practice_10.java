@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 //
 //## 問題（１）
-//  ReviewSample10.java
+//  RaktenReview.java
 //  楽天市場レビューのサンプルデータについて、
 //  レビュー１つ分を表すのに適切なクラスを作成せよ。
 //
