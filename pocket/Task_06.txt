@@ -1,0 +1,51 @@
+（第n回）実技試験課題#6 2022-12-22  task_06.java     
+     
+課題：libSVM形式への変換III
+
+以下のJavaプログラムを作成せよ（APIの利用）
+
+
+準備
+配布したテキストファイル二つをダウンロードして保存する
+IN/No7_UTF8[1].txt
+IN/No8_SJIS[1].txt
+
+ - 各行が、学生1名を表している（つもりと想定する）
+ - 各行はタブ区切りで、学籍番号 性別 姓名 GPA となっている
+ - それぞれ、文字コードがUTF-8とShift-JISになっている
+
+
+(1) 学生一名分を表す新しい抽象クラスを作成し      StudentT6.java
+    (1-1) 学籍番号 性別 姓名 GPA に対応するprivateメンバー変数をそれぞれ定義せよ
+    int studentId, String sex, String name, float gpa
+    (1-2) ↑で定義したメンバー変数に代入して初期化するコンストラクタを作成せよ 
+    (1-3) 各メンバーについてgetterとsetterを作成せよ
+    (1-4) String型の返り値で学科名を返す抽象メソッドを作成せよ    String getDepartment(int studentId)
+  抽象クラス・メソッドがわからなければ通常のクラス・メソッドで作成する（減点）
+
+(2) (1)で作成した学生一名分を表すクラスを継承した、各学科の学生1名分を表すクラスをそれぞれ定義せよ
+    StudentKagau.java   StudentShakai.java   StudentKoudou.java
+    (2-1) (1-4)で定義した学科名を返すメソッドをオーバーライドし、各学科名を返すようにせよ
+ 
+   - 学科は、学籍番号のパターンで判定する
+   - 学籍番号 2021ｘｙｙｙ の8桁について、5桁目のxに当たる数字が0なら科学科、1なら社会学科、2なら行動学科
+
+(3) mainメソッドを定義して、その中で
+  (3-1) その中でArrayListとHashMapを一つずつ定義して初期化せよ
+
+  (3-2) 保存したUTF-8版ファイルを読み込み
+    (a) 1行ごとに、作成した各学科の学生を表すクラスを new で初期化する
+         Stringクラスのインスタンスに対しsplit(“\t”)を呼び出せば、タブ区切りの結果を配列で返してくれる
+    (b) 初期化したインスタンスをArrayListに追加する
+    (c) 行数をkey、初期化したインスタンスをvalueとしてHashMapに追加する
+
+  (3-3) LibSVM形式で出力し適当なファイルに保存せよ
+     ￭特徴量としてGPAと性別を、ラベルとして学科を出力すること
+     ￭学科名を自分で数値を定義して数値ラベルに変換する
+     ￭LibSVM形式はたとえば 1 1:87 2:0.5 … といった形
+
+  (3-4) Shift-JIS版を読み込めるように変更せよ
+      BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),“Shift-JIS”));
+      とすればよい
+       InputStreamReader,FileInputStreamはいずれもjava.ioパッケージのクラス
+       
