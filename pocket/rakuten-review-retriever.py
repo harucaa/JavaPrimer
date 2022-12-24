@@ -12,7 +12,15 @@ from itertools import count
 
 # INPUT_URL = "https://review.rakuten.co.jp/item/1/330517_10002841/1.1/"  # 10 pages
 # INPUT_URL = "https://review.rakuten.co.jp/item/1/330517_10002630/1.1/"  # one page
-INPUT_URL = "https://review.rakuten.co.jp/item/1/330517_10003205/1.1/"  # 35
+# INPUT_URL = "https://review.rakuten.co.jp/item/1/330517_10003205/1.1/"  # 35
+# INPUT_URL = "https://review.rakuten.co.jp/item/1/351180_10001030/1.1/"  # 74210
+# INPUT_URL = "https://review.rakuten.co.jp/item/1/351180_10001229/1.1/"  # 10917
+# INPUT_URL = "https://review.rakuten.co.jp/item/1/351180_10000738/1.1/"  # 6771
+INPUT_URL = "https://review.rakuten.co.jp/item/1/351180_10001217/1.1/"  # 590
+
+# 1500件=100ページまでしか表示されないらしい。
+# 件数を集めるには、商品を次々と渡り歩いていくアルゴリズムが必要。
+
 
 OUTPUT_FILE = os.path.dirname(__file__) + "/rakuten_review.csv"
 PAGE_INTERVAL = 10  # 10 seconds

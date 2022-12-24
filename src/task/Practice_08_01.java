@@ -19,10 +19,8 @@ package task;
 public class Practice_08_01 {
 
 	public static void main(String[] args) {
-		Student8[] students;
-		students = new Student8[2];
-		Teacher8[] teachers;
-		teachers = new Teacher8[2];
+		Student8[] students = new Student8[2];
+		Teacher8[] teachers = new Teacher8[2];
 
 		students[0] = new Student8("Naohiro Tsuji", 3);
 		students[1] = new Student8("Miku Hatsune", 6);
